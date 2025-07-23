@@ -1,0 +1,45 @@
+# Fetch-All-Room
+
+**Source URL:** https://docs.videosdk.live/api-reference/realtime-communication/fetch-all-room
+
+HTTP method and endpointGET | https://api.videosdk.live/v2/rooms
+
+|
+
+## Authorization
+
+#### values  :    YOUR_TOKEN_WITHOUT_ANY_PREFIX
+
+This will be a JWT token generate using VideoSDK ApiKey and Secret.Note that the token will not include any prefix such as "Basic " or "Bearer ". Just pass a token as value. You can generate a new token by refering this Guide: Generate Auth token
+
+Note that the token will not include any prefix such as "Basic " or "Bearer ". Just pass a token as value. You can generate a new token by refering this Guide: Generate Auth token
+
+You can generate a new token by refering this Guide: Generate Auth token
+
+## page
+
+#### defaultValue  :    1
+
+`1`
+#### Page number for the rooms.
+
+## perPage
+
+#### defaultValue  :    20
+
+`20`
+#### Number of rooms you want per page.
+
+- cURLNodeJSPHPPython
+
+```
+import fetch from 'node-fetch';const options = {	method: "GET",	headers: {		"Authorization": "$YOUR_TOKEN",		"Content-Type": "application/json",	},};const url= `https://api.videosdk.live/v2/rooms?page=1&perPage=20`;const response = await fetch(url, options);const data = await response.json();console.log(data);
+```
+
+`import fetch from 'node-fetch';const options = {	method: "GET",	headers: {		"Authorization": "$YOUR_TOKEN",		"Content-Type": "application/json",	},};const url= `https://api.videosdk.live/v2/rooms?page=1&perPage=20`;const response = await fetch(url, options);const data = await response.json();console.log(data);`
+```
+{  "pageInfo": {    "currentPage": 1,    "perPage": 1,    "lastPage": 5,    "total": 10  },  "data": [    {      "roomId": "abcd-efgh-lmno",      "customRoomId": "final-testing",      "disabled": false,      "createdAt": "2022-03-25T04:19:32.380Z",      "updatedAt": "2022-03-25T04:19:32.380Z",      "user": {        "email": "tech@zujo.io",        "name": "Zujonow",        "discontinuedReason": null,        "id": "5f7edbb14c938bcd42944527"      },      "id": "623d42d472498060cccb51f2",      "links": {        "get_room": "https://api.videosdk.live/v2/rooms/abc-xyzw-lmno",        "get_session": "https://api.videosdk.live/v2/sessions/"      }    }  ]}
+```
+
+`{  "pageInfo": {    "currentPage": 1,    "perPage": 1,    "lastPage": 5,    "total": 10  },  "data": [    {      "roomId": "abcd-efgh-lmno",      "customRoomId": "final-testing",      "disabled": false,      "createdAt": "2022-03-25T04:19:32.380Z",      "updatedAt": "2022-03-25T04:19:32.380Z",      "user": {        "email": "tech@zujo.io",        "name": "Zujonow",        "discontinuedReason": null,        "id": "5f7edbb14c938bcd42944527"      },      "id": "623d42d472498060cccb51f2",      "links": {        "get_room": "https://api.videosdk.live/v2/rooms/abc-xyzw-lmno",        "get_session": "https://api.videosdk.live/v2/sessions/"      }    }  ]}`
+Got a Question? Ask us on discord
